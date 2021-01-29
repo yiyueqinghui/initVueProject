@@ -25,7 +25,7 @@ export default {
 			axios({
 				url:url,
 				method: 'post',
-			  data: qs.stringify(data)
+			    data: qs.stringify(data)   //注意，这里参数提交方式是x-www-form-urlencoded
 			}).then(res => {
 				resolve(res.data)
 			}).catch(err=>{

@@ -1,7 +1,24 @@
 <template>
   <div class="container">
-      {{$Store.state.name}} 
-      <el-button type="primary"><i style="color: red;" class="iconfont icon-share"></i>主要按钮</el-button>
+      <h4 class="top" style="margin-top:0" >Axios已简单封装</h4>
+      <p>示例见当前组件page/index.vue, 示例mounted</p>
+      
+      <h4 class="top" >Vuex使用</h4>
+      <p >见store/store.js  示例 ：{{$Store.state.name}} </p>  
+      
+       <h4 class="top" >Router使用</h4>
+      <p >见router/index.js </p>  
+      
+      <h4 class="top">element-ui已经引入</h4>
+      <el-button type="primary" size="mini">主要按钮</el-button>
+      
+      <h4 class="top">less已配制</h4>
+      <p >示例见当前组件page/index.vue的style </p>  
+      
+      <h4 class="top">阿里字体图标库</h4>
+      <p><a href="https://www.iconfont.cn/manage/index"> <i style="color: red;" class="iconfont icon-share"></i>阿里图标库地址 </a></p>
+      <p>这里采用的是class的方式引入图标库的<br/>此项目在index.html中引入了一个阿里图标库，创建完成仓库并添加图标后，请自行修改地址</p>
+      <p><b>提示：项目完成后，将在线图标下载到本地,以防万一</b></p>
   </div>
 </template>
 
@@ -31,6 +48,14 @@
   };
 </script>
 
-<style scoped="scoped">
+<style scoped="scoped" lang="less">
+	.container{
+		padding:0 20px;
+		.top{
+		margin-top: 30px;
+		font-size: 25px;
+	}
+	}
+	
 
 </style>
