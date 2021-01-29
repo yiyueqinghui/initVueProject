@@ -1,7 +1,7 @@
 <template>
   <div class="container">
       {{$Store.state.name}} 
-      <el-button class="iconfont icon-menu" type="primary">主要按钮</el-button>
+      <el-button type="primary"><i style="color: red;" class="iconfont icon-share"></i>主要按钮</el-button>
   </div>
 </template>
 
