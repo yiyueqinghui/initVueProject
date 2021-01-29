@@ -1,7 +1,7 @@
 <template>
   <div class="container">
       {{$Store.state.name}} 
-      <el-button type="primary">主要按钮</el-button>
+      <el-button class="iconfont icon-menu" type="primary">主要按钮</el-button>
   </div>
 </template>
 
@@ -20,10 +20,11 @@
     },
     mounted(){
       this.$nextTick(()=>{
+      	//demo
          this.common.axiosPost('https://api.inews.qq.com/newsqa/v1/automation/modules/list',{
          	 modules:'FAutoGlobalStatis'
          }).then(res=>{
-         	  debugger;
+         	  console.log(res)
          })
       })
     }

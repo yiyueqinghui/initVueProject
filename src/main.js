@@ -5,6 +5,7 @@ import router from './router'
 import 'babel-polyfill'      //兼容ie9处理
 import 'es6-promise/auto'
 
+
 import common from './utils/common.js'
 Vue.prototype.common = common
 
