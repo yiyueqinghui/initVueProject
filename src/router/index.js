@@ -7,7 +7,8 @@ export default new Router({
   routes: [
     {
       path:'/',
-      component:resolve => require(['../page/index.vue'], resolve)   
+      name:'index',
+      component:resolve => require(['../page/index/index.vue'], resolve)   
     }
   ]
 })
