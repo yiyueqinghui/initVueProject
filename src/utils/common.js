@@ -5,7 +5,7 @@ import { Message } from 'element-ui';
 export default {
 	// get 请求
 	axiosGet(url,params={}){
-		url = /^[(http://)|(https://)]/.test(url) ? url : `${process.env.WEPAPI}${url}`; 
+		url = `${process.env.WEPAPI}${url}`; 
 		return new Promise((resolve, reject) => {
 			axios.get(url, { params }).then((res) => {
 				resolve(res.data)
@@ -20,7 +20,7 @@ export default {
 	},
 	// post请求
 	axiosPost(url,data){
-		url = /^[(http://)|(https://)]/.test(url) ? url : `${process.env.WEPAPI}${url}`; 
+		url =  `${process.env.WEPAPI}${url}`; 
 		return new Promise((resolve, reject) => {
 			axios({
 				url:url,

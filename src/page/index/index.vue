@@ -47,7 +47,8 @@
     mounted(){
       this.$nextTick(()=>{
       	//demo
-         this.common.axiosPost('https://api.inews.qq.com/newsqa/v1/automation/modules/list',{
+         console.log(process.env)
+         this.common.axiosPost('/newsqa/v1/automation/modules/list',{
          	 modules:'FAutoGlobalStatis'
          }).then(res=>{
          	  console.log(res)
