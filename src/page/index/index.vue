@@ -11,6 +11,8 @@
       
       <h4 class="top">element-ui已经引入</h4>
       <el-button type="primary" size="mini">主要按钮</el-button>
+
+      <h4 class="top">jquery已经引入</h4>
       
       <h4 class="top">less已配制</h4>
       <p >示例见当前组件page/index.vue的style </p>  
@@ -45,6 +47,7 @@
 
     },
     mounted(){
+      console.log($('#app'));
       this.$nextTick(()=>{
       	//demo
          console.log(process.env)
