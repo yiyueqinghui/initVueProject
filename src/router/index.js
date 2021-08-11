@@ -6,9 +6,9 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path:'/',
-      name:'index',
-      component:resolve => require(['../page/index/index.vue'], resolve)   
+      path:'/test',
+      name:'test',
+      component:resolve => require(['../view/test/index.vue'], resolve)   
     }
   ]
 })

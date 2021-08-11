@@ -1,13 +1,18 @@
 <template>
   <div class="container">
+      
+     
       <h4 class="top" style="margin-top:0" >Axios已简单封装</h4>
-      <p>示例见当前组件page/index.vue, 示例mounted</p>
+      <p>示例见当前组件view/test/index.vue, 示例mounted</p>
       
       <h4 class="top" >Vuex使用</h4>
       <p >见store/store.js  示例 ：{{$Store.state.name}} </p>  
       
-       <h4 class="top" >Router使用</h4>
+      <h4 class="top" >Router使用</h4>
       <p >见router/index.js </p>  
+
+      <h4 class="top" >全局组件的引入</h4>
+      <BorderComp></BorderComp>
       
       <h4 class="top">element-ui已经引入</h4>
       <el-button type="primary" size="mini">主要按钮</el-button>
@@ -49,9 +54,8 @@
     mounted(){
       console.log($('#app'));
       this.$nextTick(()=>{
-      	//demo
-         console.log(process.env)
-         this.common.axiosPost('/newsqa/v1/automation/modules/list',{
+         //demo
+         this.$http.axiosPost('/newsqa/v1/automation/modules/list',{
          	 modules:'FAutoGlobalStatis'
          }).then(res=>{
          	  console.log(res)

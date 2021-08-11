@@ -7,16 +7,20 @@ import 'es6-promise/auto'
 
 import '../static/css/common.css';   //全局样式
 
-import common from './utils/common.js'   //全局公用的方法，包括异步请求的方法
-Vue.prototype.common = common
+import http from './utils/http.js'   //全局公用异步请求的方法
+Vue.prototype.$http = http
+import common from './utils/common.js'   //全局公用的方法
+Vue.prototype.$common = common
 
-import Store from './store/store'  // 全局状态管理
+import Store from './store'  // 全局状态管理
 Vue.prototype.$Store = Store
 
 import ElementUI from 'element-ui';   //引入element-ui
 import 'element-ui/lib/theme-chalk/index.css';
-
 Vue.use(ElementUI);
+
+import globalComp from "./components/globalComp/index.js";   //引入封装的全局通用组件库
+Vue.use(globalComp);
 
 
 
