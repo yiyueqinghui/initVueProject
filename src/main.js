@@ -7,8 +7,6 @@ import 'es6-promise/auto'
 
 import '../static/css/common.css';   //全局样式
 
-import http from './utils/http.js'   //全局公用异步请求的方法
-Vue.prototype.$http = http
 import common from './utils/common.js'   //全局公用的方法
 Vue.prototype.$common = common
 
@@ -21,6 +19,11 @@ Vue.use(ElementUI);
 
 import globalComp from "./components/globalComp/index.js";   //引入封装的全局通用组件库
 Vue.use(globalComp);
+
+import * as filter from './filter'      // 全局filter
+Object.keys(filter).forEach(key => {
+  Vue.filter(key, filter[key])
+})
 
 
 

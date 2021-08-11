@@ -6,9 +6,9 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path:'/test',
-      name:'test',
-      component:resolve => require(['../view/test/index.vue'], resolve)   
+      path:'/',         //这个是为了方便查看,开发请自行修改
+      name:'Test', 
+      component:()=>import('../view/test/index.vue')
     }
   ]
 })

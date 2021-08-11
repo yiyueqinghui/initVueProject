@@ -40,7 +40,9 @@
 
 
 <script>
+  import { getTopicsList } from '@/api/topics/topics.js'
   export default {
+    name:'Test',
     data() {
       return {
       	input:''
@@ -52,14 +54,17 @@
 
     },
     mounted(){
-      console.log($('#app'));
       this.$nextTick(()=>{
          //demo
-         this.$http.axiosPost('/newsqa/v1/automation/modules/list',{
-         	 modules:'FAutoGlobalStatis'
-         }).then(res=>{
-         	  console.log(res)
-         })
+        getTopicsList({
+          page:1,
+          tab:'job',
+          limit:10
+        }).then(res=>{
+           console.log(res);
+        })
+        
+
       })
     }
   };

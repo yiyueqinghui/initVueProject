@@ -5,7 +5,7 @@ import { Message } from 'element-ui';
 export default {
 	// get 请求
 	axiosGet(url,params={}){
-		url = `${process.env.WEPAPI}${url}`; 
+		url = `${process.env.BASE_API}${url}`; 
 		return new Promise((resolve, reject) => {
 			axios.get(url, { params }).then((res) => {
 				resolve(res.data)
