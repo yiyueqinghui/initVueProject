@@ -20,6 +20,8 @@ Vue.use(ElementUI);
 import globalComp from "./components/globalComp/index.js";   //引入封装的全局通用组件库
 Vue.use(globalComp);
 
+import '@/permission'       // 路由权限控制
+
 import * as filter from './filter'      // 全局filter
 Object.keys(filter).forEach(key => {
   Vue.filter(key, filter[key])

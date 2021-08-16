@@ -89,6 +89,7 @@
        - utils(存放通用工具，比如,对axios请求封装、时间日期格式化等方法,这里把异步请求单独拿出来)
          - common.js(常用全局方法)
          - http.js(axios请求封装)
+       - mock(专门存放模拟的数据)  
 
     - static    
       - css 
@@ -165,3 +166,34 @@
 	- 每次修改提交，必须写注释说明；
     - 注意提交时, node_modules、打包后的文件(比如：dist) 不需要提交到仓库内，设置忽略即可；
 	  SVN忽略设置的方法：https://blog.csdn.net/yiyueqinghui/article/details/116046034
+
+# 四、多个项目公共组件的管理
+  - 文件参考svn地址：http://10.2.25.199/svn/zxy/01开发域/03编码实现/源代码/03业务系统/trunk/stcc-tocc-business-bigscreen-center/commonVue
+
+  - 新建公共组件并发布到npm的步骤如下:
+    - 1、创建组件
+      - 1.1、在src/components目录下新建目录，并创建自己的组件
+      - 1.2、之后可以在App.vue中调用自定义的组件并测试
+      - 1.3、在index.js中引入自定义的组件,并导出。参考login组件即可；
+    
+    - 2、发布组件到npm
+      - 2.1、去 npm 官网注册个账号 https://www.npmjs.com/
+      - 2.2、运行npm login，会提示输入个人信息，输入邮箱后，会自动给这个邮箱发送一个邮件，通知发布成功，输入完，登录成功。
+      - 2.3、发布之前的检查包名是否已被占用，package.json中的name值,即你发布后npm安装时的包名，
+        可通过在https://www.npmjs.com/ 中输入name值，查看是否可以搜索到,如果可查寻到，再次修改包名
+      - 2.4、发布：npm publish  (注意：每次发布的时候package.json 里面的 version不能一样，不然不能发布出去，手动改下版本就行)
+      - 2.5、登录npm官网，查看自己发布的组件
+      - 2.6、更新时，修改package.json 里面的 version ，再次发布即可
+
+    - 3、安装并引用
+      - 3.1、安装：npm install 你自己发布的包名
+      - 3.2、在main.js中引入。eg
+      ```
+        import GckjUI from 'gckj-ui';
+        import 'gckj-ui/src/asset/css/common.css'
+        Vue.use(GckjUI)
+      ```
+      - 3.3、调用，在任意组件中调用时添加前缀gc即可，比如login组件
+      ```
+         <gc-login @login-event="login"></gc-login>
+      ```

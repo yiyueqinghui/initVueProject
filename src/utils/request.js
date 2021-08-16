@@ -1,4 +1,5 @@
 import axios from 'axios'
+import qs from 'qs'
 import { Message, MessageBox } from 'element-ui'
 
 // 创建axios实例
@@ -10,9 +11,10 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(
   config => {
-    let authorization = window.localStorage.getItem('token');
-    authorization = authorization ?　authorization　: '';
-    config.headers['Authorization'] = authorization
+    // content-type 为 application/x-www-form-urlencoded时对data的修改
+    config.headers['content-type'] = 'application/x-www-form-urlencoded';
+    config.data = qs.stringify(config.data);
+
     return config
   },
   error => {

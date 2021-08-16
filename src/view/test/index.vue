@@ -1,12 +1,10 @@
 <template>
   <div class="container">
-      
-     
       <h4 class="top" style="margin-top:0" >Axios已简单封装</h4>
       <p>示例见当前组件view/test/index.vue, 示例mounted</p>
       
       <h4 class="top" >Vuex使用</h4>
-      <p >见store/store.js  示例 ：{{$Store.state.name}} </p>  
+      <p >见store/store.js  示例 ：{{$Store.state.name}} </p>
       
       <h4 class="top" >Router使用</h4>
       <p >见router/index.js </p>  
@@ -55,16 +53,13 @@
     },
     mounted(){
       this.$nextTick(()=>{
-         //demo
-        getTopicsList({
-          page:1,
-          tab:'job',
-          limit:10
-        }).then(res=>{
-           console.log(res);
-        })
-        
-
+          getTopicsList({
+            page:1,
+            tab:'job',
+            limit:10
+          }).then(res=>{
+            console.log(res);
+          })
       })
     }
   };
@@ -74,9 +69,9 @@
 	.container{
 		padding:0 20px;
 		.top{
-		margin-top: 30px;
-		font-size: 25px;
-	}
+      margin-top: 30px;
+      font-size: 25px;
+    }
 	}
 	
 
