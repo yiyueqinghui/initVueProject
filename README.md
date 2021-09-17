@@ -199,3 +199,21 @@
       ```
          <gc-login @login-event="login"></gc-login>
       ```
+
+# 五、此vue项目脚手架，webpack优化如下
+  - 新增hard-source-webpack-plugin插件，优化项目第二次启动时的速度，第一次启动时正常速度启动，第二次启动则可减少70%的速度。
+    配制如下：
+    ```
+    1、安装hard-source-webpack-plugin，
+        npm i hard-source-webpack-plugin -D
+    2、在webpack.conf.js中配制
+        const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+        module.exports = {
+          // ......
+          plugins: [
+            new HardSourceWebpackPlugin() // <- 直接加入这行代码就行
+          ]
+        }
+
+
+    ```
