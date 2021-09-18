@@ -217,3 +217,9 @@
 
 
     ```
+  - 项目打包后，清空console.log,防止控制台输出
+    在webpack.prod.conf.js中
+    ```
+
+
+    ```
