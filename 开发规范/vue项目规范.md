@@ -262,16 +262,16 @@ script不要写在head标签里面，会阻碍页面加载
     <input style="float:left;"  type="email">
 </form>
 ```
-#### 14、类的命名使用小写字母加中划线连接
+#### 14、类的命名使用小写字母加下划线连接
 ```html
 // ✗ avoid
 <div class="userinfo"></div>
 <div class="userInfo"></div>
-<div class="user_info"></div>
+<div class="user-info"></div>
 ```
 ```html
 // ✓  ok
-<div class="user-info"></div>
+<div class="user_info"></div>
 ```
 #### 15、防止同一标签上同一属性的重复出现
 ```html
@@ -340,7 +340,7 @@ script不要写在head标签里面，会阻碍页面加载
 #### 2、使用CSS缩写属性
 ```css
 // ✗ avoid
-.list-box {
+.list_box {
   font-family: serif;
   font-size: 20px;
   line-height: 1.5;
@@ -352,7 +352,7 @@ script不要写在head标签里面，会阻碍页面加载
 ```
 ```css
 // ✓  ok
-.list-box {
+.list_box {
   font: 20px/1.5 serif;
   padding: 10px 5px;
 }
@@ -398,14 +398,16 @@ script不要写在head标签里面，会阻碍页面加载
 .mainTitle {
   color: #dfdfdf; 
 }
-.main_title {
-  color: #dfdfdf; 
+.main-title {
+  color: #dfdfdf;
 }
+
+
 ```
 ```css
 // ✓  ok
-.main-title {
-  color: #dfdfdf;
+.main_title {
+  color: #dfdfdf; 
 }
 ```
 #### 6、id是唯一的，不可重复
@@ -420,7 +422,7 @@ script不要写在head标签里面，会阻碍页面加载
 ```
 ```css
 // ✓  ok
-.is-active {
+.is_active {
   color: 'red';
 }
 ```
@@ -848,12 +850,6 @@ for (let i = 0; i < items.length; i++) {...}    // ✓ ok
             new HardSourceWebpackPlugin() // <- 直接加入这行代码就行
           ]
         }
-
-
-    ```
-  - 项目打包后，清空console.log,防止控制台输出
-    在webpack.prod.conf.js中
-    ```
 
 
     ```
