@@ -169,11 +169,11 @@ script不要写在head标签里面，会阻碍页面加载
 // ✗ avoid
 <div class="userinfo"></div>
 <div class="userInfo"></div>
-<div class="user_info"></div>
+<div class="user-info"></div>
 ```
 ```html
 // ✓  ok
-<div class="user-info"></div>
+<div class="user_info"></div>
 ```
 #### 15、防止同一标签上同一属性的重复出现
 ```html
