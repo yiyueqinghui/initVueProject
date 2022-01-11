@@ -58,12 +58,9 @@
             tab:'job',
             limit:10
           }).then(res=>{
-            debugger;
             console.log(res);
           })
       })
-      debugger;
-      console.log(123)
     }
   };
 </script>
