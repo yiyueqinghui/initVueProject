@@ -13,10 +13,6 @@ Vue.prototype.$common = common
 import Store from './store'  // 全局状态管理
 Vue.prototype.$Store = Store
 
-// import ElementUI from 'element-ui';
-// import 'element-ui/lib/theme-chalk/index.css';
-// Vue.use(ElementUI);
-
 import "./utils/element-ui.js"    // 按需引入element-ui
 
 import globalComp from "./components/globalComp/index.js";   //引入封装的全局通用组件库
