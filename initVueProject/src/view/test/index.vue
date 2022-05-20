@@ -4,16 +4,24 @@
     <p>示例见当前组件view/test/index.vue 中,示例mounted中调用的方法</p>
 
     <h4 class="top">Vuex使用</h4>
-    <p>见store/store.js 示例 ：{{ $Store.state.name }}</p>
+    <p>见store/store.js 示例 ：
+      <table style="width:300px;text-align:center;">
+        <tr v-for="(item,index) in userList" :key="index">
+          <td style="border:1px solid #000000;">{{item.name}}</td>
+          <td style="border:1px solid #000000;">{{item.age}}</td>
+          <td style="border:1px solid #000000;">
+            <el-button type="text" @click="deleteUser(item.id)">删除</el-button>
+            <el-button type="text" @click="addUser">新增</el-button>
+          </td>
+        </tr>
+      </table>
+    </p>
 
-    <h4 class="top">Router使用</h4>
-    <p>见router/index.js</p>
+    <h4 class="top">element-ui已经引入</h4>
+    <el-button type="primary" size="mini">修改Vuex</el-button>
 
     <h4 class="top">全局组件的引入示例</h4>
     <BorderComp></BorderComp>
-
-    <h4 class="top">element-ui已经引入</h4>
-    <el-button type="primary" size="mini">主要按钮</el-button>
 
     <h4 class="top">jquery已经引入</h4>
 
@@ -48,6 +56,9 @@
 
 <script>
 import { postTopicsList, getTopicsList } from "@/api/topics/topics.js";
+import { uuid } from "@/utils/index";
+const Mock = require("mockjs");
+
 export default {
   name: "Test",
   data() {
@@ -55,7 +66,34 @@ export default {
       input: ""
     };
   },
-  methods: {},
+  computed: {
+    userList() {
+      return this.$Store.state.table.userList;
+    }
+  },
+  methods: {
+    // 删除用户
+    deleteUser(id) {
+      let filterUserList = this.userList.filter(item => item.id !== id);
+      this.$Store.commit("table/setUserList", filterUserList);
+      this.$message.success("删除成功!");
+    },
+    // 随机新增用户
+    addUser() {
+      let item = Mock.mock({
+        id: "@id",
+        name: "@cname",
+        date: "@date(yyy-MM-dd)",
+        description: "@paragraph",
+        email: "@email",
+        "age|18-90": 0
+      });
+      console.log(item);
+      let copyUserList = JSON.parse(JSON.stringify(this.userList));
+      copyUserList.push(item);
+      this.$Store.commit("table/setUserList", copyUserList);
+    }
+  },
   mounted() {
     // 调用接口示例
     this.$nextTick(() => {
