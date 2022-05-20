@@ -11,9 +11,21 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(
   config => {
+    if (config.url.substring(0, 5) === '/mock') {   // 专为本地mock请求设置content-type
+      config.headers['content-type'] = 'application/json; charset = utf-8';
+
+    } else {   // 真实请求设置content-type
+      if (!config.headers['content-type']) {   // 默认传参方式
+        config.headers['content-type'] = 'application/x-www-form-urlencoded';
+      } else {
+        config.headers['content-type'] = config.headers['content-type']
+      }
+    }
+
     // content-type 为 application/x-www-form-urlencoded时对data的修改
-    config.headers['content-type'] = 'application/x-www-form-urlencoded';
-    config.data = qs.stringify(config.data);
+    if (config.headers['content-type'] === 'application/x-www-form-urlencoded') {
+      config.data = qs.stringify(config.data);
+    }
 
     return config
   },
@@ -25,8 +37,7 @@ service.interceptors.request.use(
 // response 拦截器
 service.interceptors.response.use(
   response => {
-    console.log(response)
-    if('code' in response){
+    if ('code' in response) {
       const res = response.data
       if (res.code == '50014') {          //如果code存在，则根据后端返回的不同特别状态码，进行相应操作，eg: 50014:Token 过期了;
         MessageBox.confirm(
@@ -40,7 +51,7 @@ service.interceptors.response.use(
           sessionStorage.clear()
           localStorage.clear()
         })
-      }else if (res.code !== '200') {    // 返回状态非200,提示报错！
+      } else if (res.code !== '200') {    // 返回状态非200,提示报错！
         Message({
           message: res.message,
           type: 'error',
@@ -50,11 +61,11 @@ service.interceptors.response.use(
       } else {                           // 成功返回数据
         return response.data
       }
-    }else{    // 如果code不存在，则统一默认为成功
+    } else {    // 如果code不存在，则统一默认为成功
       return response.data
-    }  
+    }
   },
-  error => {       
+  error => {
     Message({
       message: error.message,
       type: 'error',

@@ -14,7 +14,7 @@ export function fixed(value) {
   }
 }
 
-// 时间戳转日期
+// 时间戳转日期 yyy-MM-dd hh:mm:ss
 export function formatTimestamp(value) {
   if (value == null) {
     return ''
@@ -35,7 +35,7 @@ export function formatTimestamp(value) {
 }
 
 
-// 时间戳转日期
+// 时间戳转日期  yyy-MM-dd 
 export function formatDate(value) {
   if (value == null) {
     return ''

@@ -3,10 +3,10 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');   
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 var webpack = require("webpack")
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -68,8 +68,8 @@ module.exports = {
         }
       },
       {
-        test:/\.less$/,
-        loader:"style-loader!css-loader!less-loader"
+        test: /\.less$/,
+        loader: "style-loader!css-loader!less-loader"
       }
     ]
   },
@@ -87,9 +87,9 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-        jQuery: "jquery",
-        $: "jquery"
+      jQuery: "jquery",
+      $: "jquery"
     }),
-    new HardSourceWebpackPlugin() 
+    // new HardSourceWebpackPlugin()
   ]
 }

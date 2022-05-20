@@ -7,9 +7,6 @@ import 'es6-promise/auto'
 
 import '../static/css/common.css';   //全局样式
 
-import common from './utils/common.js'   //全局公用的方法
-Vue.prototype.$common = common
-
 import Store from './store'  // 全局状态管理
 Vue.prototype.$Store = Store
 
@@ -25,7 +22,12 @@ Object.keys(filter).forEach(key => {
   Vue.filter(key, filter[key])
 })
 
-
+console.log(process.env.NODE_ENV)
+// 生产环境，运行mock, 开发环境在devServer中模拟请求
+if (process.env.NODE_ENV === 'production') {
+  const { mockXHR } = require('@/utils/mockXhr.js')
+  mockXHR()
+}
 
 Vue.config.productionTip = false
 

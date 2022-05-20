@@ -36,7 +36,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       uglifyOptions: {
         compress: {
           warnings: false,
-          drop_debugger:true,    //注意drop_debugger、drop_console顺序不可改变,这只能实现清除代码中的console.log,无法给代码添加debugger;
+          drop_debugger: true,    //注意drop_debugger、drop_console顺序不可改变,这只能实现清除代码中的console.log,无法给代码添加debugger;
           drop_console: true
         }
       },
@@ -83,7 +83,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks (module) {
+      minChunks(module) {
         // any required modules inside node_modules are extracted to vendor
         return (
           module.resource &&
