@@ -1,0 +1,25 @@
+import { uuid } from '@/utils/index'
+const state = () => ({
+    userList: [
+        {
+            id: uuid(),
+            name: 'Tony_test',
+            age: 29
+        },
+        {
+            id: uuid(),
+            name: 'Jey_test',
+            age: 31
+        }
+    ],
+})
+
+const mutations = {
+    setUserList(state, userList) {
+        state.userList = userList
+    }
+}
+
+export default {
+    state, mutations,
+}
